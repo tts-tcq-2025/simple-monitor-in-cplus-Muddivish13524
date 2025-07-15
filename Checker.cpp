@@ -11,12 +11,15 @@ enum class BatteryStatus {
 };
 
 BatteryStatus checkBatteryStatus(float temperature, float soc, float chargeRate) {
-    if (temperature < 0 || temperature > 45)
+    if (temperature < 0 || temperature > 45) {
         return BatteryStatus::TemperatureOutOfRange;
-    if (soc < 20 || soc > 80)
+    }
+    if (soc < 20 || soc > 80) {
         return BatteryStatus::SOCOutOfRange;
-    if (chargeRate > 0.8)
+    }
+    if (chargeRate > 0.8) {
         return BatteryStatus::ChargeRateOutOfRange;
+    }
     return BatteryStatus::OK;
 }
 
